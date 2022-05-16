@@ -37,10 +37,18 @@ CUDA_VISIBLE_DEVICES=0 python main.py --version mimic3-50 --combiner lstm --rnn_
 
 # Citation
 ```
-@article{yuan2022code,
-  title={Code Synonyms Do Matter: Multiple Synonyms Matching Network for Automatic ICD Coding},
-  author={Yuan, Zheng and Tan, Chuanqi and Huang, Songfang},
-  journal={arXiv preprint arXiv:2203.01515},
-  year={2022}
+@inproceedings{yuan-etal-2022-code,
+    title = "Code Synonyms Do Matter: Multiple Synonyms Matching Network for Automatic {ICD} Coding",
+    author = "Yuan, Zheng  and
+      Tan, Chuanqi  and
+      Huang, Songfang",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-short.91",
+    pages = "808--814",
+    abstract = "Automatic ICD coding is defined as assigning disease codes to electronic medical records (EMRs).Existing methods usually apply label attention with code representations to match related text snippets.Unlike these works that model the label with the code hierarchy or description, we argue that the code synonyms can provide more comprehensive knowledge based on the observation that the code expressions in EMRs vary from their descriptions in ICD. By aligning codes to concepts in UMLS, we collect synonyms of every code. Then, we propose a multiple synonyms matching network to leverage synonyms for better code representation learning, and finally help the code classification. Experiments on the MIMIC-III dataset show that our proposed method outperforms previous state-of-the-art methods.",
 }
 ```
