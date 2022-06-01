@@ -76,3 +76,24 @@ class UMLS(object):
         print("cui count:", self.cui_count)
         print("str2cui count:", len(self.str2cui))
         print("MRCONSO count:", read_count)
+   
+    def clean(self, term, lower=True, clean_NOS=True, clean_bracket=True, clean_dash=True):
+        term = " " + term + " "
+        if lower:
+            term = term.lower()
+        if clean_NOS:
+            term = term.replace(" NOS ", " ").replace(" nos ", " ")
+        if clean_bracket:
+            term = re.sub(u"\\(.*?\\)", "", term)
+        if clean_dash:
+            term = term.replace("-", " ")
+        term = " ".join([w for w in term.split() if w])
+        return term
+
+    def icd2str(self, icd):
+        if icd in self.code2cui:
+            cui = self.code2cui[icd]
+            str_list = self.cui2str[cui]
+            str_list = [w for w in str_list if len(w.split()) >= 2 or len(w) >= 7]
+            return list(str_list)
+        return []
