@@ -80,7 +80,7 @@ def run(args):
     best_epoch_idx = 0
    
     if accelerator.is_local_main_process and args.debug:
-        dev_metric, _ = eval_func(model, dev_dataloader, args.device, args.prob_threshold, True, args)
+        dev_metric, _, _ = eval_func(model, dev_dataloader, args.device, args.prob_threshold, True, args)
         print_metrics(dev_metric, 'DEBUG')
 
     for epoch_idx in range(1, args.train_epoch + 1):
@@ -115,7 +115,7 @@ def run(args):
             break
         
     if accelerator.is_local_main_process:
-        best_train_metric, _ = eval_func(model, train_dataloader, accelerator.device, args.prob_threshold, True, args)
+        best_train_metric, _, _ = eval_func(model, train_dataloader, accelerator.device, args.prob_threshold, True, args)
         print_metrics(best_train_metric, 'Best_Train_Epoch' + str(best_epoch_idx))
         print_metrics(best_train_metric, 'Best_Train_Epoch' + str(best_epoch_idx), os.path.join(output_path, 'metric_log'))
         print_metrics(best_dev_metric, 'Best_Dev_Epoch' + str(best_epoch_idx))
