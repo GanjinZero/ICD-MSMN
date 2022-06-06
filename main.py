@@ -215,7 +215,7 @@ def predict(model, dataloader, device, threshold=None, tqdm_bar=None, args=None)
     it = tqdm(dataloader) if tqdm_bar else dataloader
     with torch.no_grad():
         if isinstance(model, DistributedDataParallel):
-                model.module.calculate_label_hidden()
+            model.module.calculate_label_hidden()
         else:
             model.calculate_label_hidden()
         for batch in it:
