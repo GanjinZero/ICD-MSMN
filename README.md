@@ -35,6 +35,13 @@ MIMIC-III 50:
 CUDA_VISIBLE_DEVICES=0 python main.py --version mimic3-50 --combiner lstm --rnn_dim 512 --num_layers 1 --decoder MultiLabelMultiHeadLAATV2 --attention_head 8 --attention_dim 512 --learning_rate 5e-4 --train_epoch 20 --batch_size 16 --gradient_accumulation_steps 1 --xavier --main_code_loss_weight 0.0 --rdrop_alpha 5.0 --est_cls 1 --term_count 8 --word_embedding_path word_embedding_path
 ```
 
+# Evaluate checkpoints
+```
+python eval_model.py MODEL_CHECKPOINT
+```
+[mimic3 checkpoint](https://drive.google.com/file/d/1Ru9AM3FJuBVWSvPDUV13vWhWDzFw_qAD/view?usp=sharing)
+[mimic3-50 checkpoint](https://drive.google.com/file/d/18Ny2R9WLWWa2UpyReaBn-zoSb1Uga9yX/view?usp=sharing)
+
 # Citation
 ```
 @inproceedings{yuan-etal-2022-code,
