@@ -40,6 +40,7 @@ CUDA_VISIBLE_DEVICES=0 python main.py --version mimic3-50 --combiner lstm --rnn_
 python eval_model.py MODEL_CHECKPOINT
 ```
 [mimic3 checkpoint](https://drive.google.com/file/d/1Ru9AM3FJuBVWSvPDUV13vWhWDzFw_qAD/view?usp=sharing)
+
 [mimic3-50 checkpoint](https://drive.google.com/file/d/18Ny2R9WLWWa2UpyReaBn-zoSb1Uga9yX/view?usp=sharing)
 
 # Citation
